@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seletores DOM</title>
+</head>
+<body>
+    <header>
+
+    </header>
+    <main>
+        <section>
+            <h1>JavaScript 1 Seletores DOM</h1>
+            <h3>O que é DOM?</h3>
+            <p>O DOM, das siglas em inglês “Document Object Model” (ou “Modelo de Objeto do Documento” em português), 
+                é um modelo que representa os elementos exibidos numa página web. 
+                A ligação do DOM com nossos arquivos HTML é de dupla mão: quando um elemento HTML é criado, 
+                uma representação dele no DOM é criado, 
+                e se alteramos alguma representação no DOM seu respectivo elemento HTML sofrerá as mesmas alterações no navegador. 
+                E quem nos ajudará a manipular o DOM? Você provavelmente já sabe a resposta: JavaScript!
+            </p>
+            <h3>Setup de arquivos</h3>
+            <p>Para entender melhor como podemos acessar o DOM, 
+                comecemos criando uma nova pasta chamada seletores-dom, 
+                criemos o arquivo index.html com a estrutura base HTML, 
+                e adicionemos nele os seguintes elementos dentro da tag body:
+            </p>
+            <img src="#" alt="">
+
+            <p>Como você pode ver temos 5 elementos HTML. 
+                No “primeiro nível” temos um elemento h2, e duas divs. 
+                No “segundo nível” temos os “filhos” da segunda div: 
+                um segundo elemento h2 e um elemento de parágrafo. Agora, 
+                adicionemos um id com o valor “titulo” ao primeiro elemento h2, 
+                e a class “texto-simples” à primeira div e ao elemento de parágrafo:
+            </p>
+            <img src="#" alt="">
+            <p>Como não aplicamos nenhuma estilização à nossa página, 
+                se abrirmos nosso projeto no navegador com a ferramenta GoLive da extensão Live Server, 
+                ela deveria ter o seguinte aspecto:
+                <h2>Este é o primeiro h2</h2>
+                <p>Está é uma div</p>
+                <h2>Este é o segundo h2</h2>
+            </p>
+        </section>
+        <section>
+            <p>Criemos agora o arquivo script.js e conectemos ambos arquivos adicionando 
+                a seguinte tag script dentro da tag head do nosso arquivo index.html com o atributo defer:
+            </p>
+            <p><head>
+
+                ...
+              
+                <script src="script.js" defer></script>
+              
+                <title>Seletores DOM</title>
+              
+              </head>
+              
+               
+              
+              Obs. Os três pontos representam as tags meta
+            </p>
+            <p>Para testar que a conexão foi feita corretamente, voltemos no arquivo script.js 
+                e imprimamos a frase “Olá mundo!” com a seguinte linha de código:
+
+                console.log("Olá mundo!");
+            </p>
+            <p>Precisamos agora ir no navegador, 
+                e abrir os Dev Tools fazendo click direito na página e selecionando Inspecionar 
+                ou com a o atalho de teclado F12. 
+                Após abrir a aba “Console” das Dev Tools devemos ver a nossa mensagem no terminal:
+            </p>
+            <p>Caso não consiga ver a mensagem no terminal, 
+                verifique que o nome do arquivo (“script.js”) e o atributo src da tag script no arquivo index.html estão escritos da mesma forma. 
+                Outro possível motivo para não exibir a mensagem e não ter salvo as alterações em ambos arquivos.
+            </p>
+        </section>
+        <section>
+            <h3>Acessando a DOM por ID e Classe</h3>
+            <p>Para acessar os elementos do nosso arquivo HTML usaremos o objeto document criado pelo DOM. 
+                Este objeto tem uma série de propriedades que nos retornam informações sobre nossa página, 
+                como por exemplo a URL, ou os cookies.
+            </p>
+            <p>Neste caso, usaremos quatro métodos (funções guardadas em um objeto) para acessar os elementos da DOM. 
+                Os dois primeiros são:<br>
+                getElemmntById() = Retorna o elemento que tem o ID com valor especifico. <br>
+                getElemmntByClassName() = Retorna um HTMLColletion com todos os elementosque contem as classes especificadas.
+            </p>
+            <p>De volta no arquivo script.js, começamos declarando uma variável que guardará o retorno do primeiro método, 
+                e atribuímos a ele o objeto document:
+                const titulo = document <br>
+                Se imprimirmos a variável titulo neste ponto, 
+                poderemos ver todas as informações que guarda o objeto document:
+                const titulo = document
+                console.log(titulo);
+            </p>
+            <p>Contudo, a gente não quer salvar todas essas informações na nossa variável titulo, 
+                senão apenas o elemento h2 com id “titulo”. Para isso, usaremos o método .getElementById() do objeto document 
+                e passaremos como argumento a string “titulo”.
+
+                const titulo = document.getElementById("titulo");<br>
+                
+                console.log(titulo);
+
+                Ao conferirmos o terminal no nosso navegador, 
+                deveríamos ver impresso dessa vez a tag h2 da forma como está escrita no nosso arquivo HTML: <br>
+                Vale lembrar que dois elementos não devem ter o mesmo valor de ID numa mesma página, portanto, 
+                o método .getElementById() procura apenas um elemento.
+            </p>
+            <p>E se quisermos avessar vários elementos de uma só vez? 
+                Nossa primeira opção é usar o método .getElementsByClassName(), 
+                passar como argumento a string “texto-simples”, e guardar o retorno numa variável. 
+                Usemos o console.log() para imprimir essa variável:
+
+                const textos = document.getElementsByClassName("texto-simples");
+                 
+                console.log(textos); <br>
+                Dessa vez, se conferirmos o terminal, teremos um resultado um pouco diferente: 
+                um HTMLCollection. As HTMLCollection são semelhantes (porém, não iguais) a arrays. 
+                Ao lado do termo HTMLCollection podemos ver um número 2 entre parênteses, 
+                indicando que é uma lista com dois elementos. 
+                Podemos ver também ambos os elementos entre chaves e separados por uma vírgula (seguindo a sintaxe de um array): 
+                uma div e um parágrafo com a classe “texto-simples”.
+            </p>
+        </section>
+    </main>
+</body>
+</html>

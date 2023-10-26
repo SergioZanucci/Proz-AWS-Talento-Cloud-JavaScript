@@ -1,0 +1,364 @@
+JavaScript 1
+
+Revisão
+
+Durante nossa jornada de aprendizagem, 
+vimos muitos assuntos fundamentais para compreender o funcionamento da linguagem JavaScript. 
+Por isso, neste hipertexto, iremos revisar os principais pontos abordados na disciplina.
+
+Para recapitular, nesse módulo, já vimos:
+Variáveis
+
+Para declarar variáveis, usamos quatro elementos:
+
+a palavra reservada para o tipo da variável;
+
+o nome da variável;
+
+o operador de atribuição “=”;
+
+o valor a ser atribuído à variável.
+
+Exemplo: var letra = “a”.
+
+
+Na linguagem JavaScript, temos três tipos de variáveis: var, let e const.
+
+Aprendemos que a variável do tipo var caiu em desuso. 
+Portanto, usamos o tipo let para variáveis que podem ter novos valores atribuídos a elas. 
+Já o tipo const é utilizado para variáveis que não podem ter seu valor atribuído.
+
+Operadores
+
+Os operadores aritméticos, como os de soma, de subtração, 
+de módulo, e os operadores relacionais, como o maior que e o menor que, 
+são iguais nas linguagens Python e JavaScript.
+
+Já os operadores lógicos são diferentes na linguagem JavaScript.
+
+Operadores
+
+Operação	Operador
+Conjunção	&&
+Disjunção	||
+Negação	    !
+
+
+Estruturas condicionais
+
+Para escrever as estruturas condicionais, precisamos de três elementos:
+
+pelo menos uma palavra reservada, como if e else;
+
+uma condição entre parênteses que retorna um valor booleano;
+
+um bloco de código entre chaves { }.
+
+Observe o exemplo:
+ if (num > 5) {
+    console.log("É maior que 5");
+ }
+
+Usamos a palavra reservada else para definir um bloco de código que deve 
+ser executado caso a condição retorne um valor falso. 
+Observe o exemplo:
+
+if (num > 5) {
+    console.log("É maior que 5");
+} else {
+    console.log("É menor que 5");
+}
+
+Além disso, podemos encadear mais de uma verificação usando as palavras reservadas else e if juntas, 
+mas lembre-se que o bloco do else precisa ser o último na cadeia. 
+Veja o exemplo:
+
+if (num > 5) {
+    console.lo("É maior que 5");
+} else if (num < 5) {
+    console.log("É menor que 5");
+} else {
+    console.log("É o numero 5");
+}
+
+Aprendemos também que a linguagem JavaScript nos permite verificar a veracidade de um valor booleano. 
+Para isso, basta escrever o nome da variável que guarda o valor.
+
+Observe o exemplo:
+if (aprovado == true)...
+
+// é o mesmo que
+
+if (aprovado)...
+
+Em contrapartida, podemos verificar se um valor é falso se colocarmos o operador de negação “!” 
+seguido do nome da variável que guarda esse valor.
+
+Observe:
+if (aprovado == false)...
+
+// é o mesmo que
+
+if (!aprovado)...
+
+
+A estrutura base de um for loop consiste em:
+
+uma palavra reservada for;
+
+parâmetros do loop entre parênteses ( );
+
+um código, que será executado, entre chaves { }.
+
+ 
+Loops
+
+Dentro dos parênteses, escrevemos, separados por ponto e vírgula, 
+os três parâmetros do loop: variável contadora, condição de parada e incremento (ou decremento).
+
+Como exemplo, temos:
+
+um for loop que começa com uma variável contadora i de valor inicial 0;
+
+incremento de 1 a cada repetição;
+
+a condição de parada é o contador ser menor que 5.
+
+Sendo assim, o código fica:
+for (let i = 0; i < 5; i++) {
+    console.log(i);
+}
+
+Arrays
+
+Podemos percorrer arrays usando o for loop e a propriedade .length(), que retorna o tamanho de um array 
+para compor a condição de parada. 
+Observe o exemplo:
+let queijos = ["Mussarela" , "Prato", "Brie"];
+
+for (let i = 0; i < queijos.lenght; i++) {
+    console.log(letras[i]);
+}
+
+Funções
+
+Na linguagem JavaScript, temos três formas de declarar variáveis: declaração regular, declaração anônima e arrow functions.
+Para declarar funções na forma regular, precisamos de quatro elementos: 
+a palavra reservada function, o nome da função, 
+os parâmetros que a função pode receber entre parênteses e o bloco de código a ser executado entre chaves. 
+Observe o exemplo:
+
+function subtrair(a, b) {
+    return a - b
+}
+
+Já as funções anônimas são declaradas sem um nome, apenas com a palavra reservada function, 
+os parâmetros entre parênteses e o bloco de código entre chaves. 
+Vale lembrar que, este código geralmente é atribuído a uma variável que guarda a função como o seu valor. 
+Observe o exemplo:
+
+const subtrair = function (a, b) {
+    return a - b
+}
+
+A sintaxe das arrow functions nos permite simplificar a escrita das funções anônimas. 
+Ela é extremamente útil para as funções pequenas, com um ou nenhum parâmetro, e os blocos de códigos pequenos.
+
+Observe o exemplo:
+
+const numAnterior = num => num - 1
+
+JavaScript e HTML
+
+Aprendemos duas formas de inserir um código JavaScript nos nossos arquivos HTML: por meio de tags ou de arquivos.js.
+
+Tag <script>
+
+A tag <script></script> nos permite escrever o código JavaScript diretamente nos nossos arquivos HTML.
+Caso usemos a função console.log() para imprimir algo, isto será exibido no terminal do navegador. 
+Para conferir o terminal do navegador, abrimos as Dev Tools do navegador e selecionamos a aba Console.
+Além disso, entre as tags de abertura e de fechamento do script, 
+podemos escrever qualquer tipo de código JavaScript.
+
+Arquivos .js
+
+Aprendemos que uma boa prática é escrever nossos códigos JavaScript em um arquivo separado 
+com a extensão.js e conectá-lo com seu arquivo HTML.
+
+Para conectar arquivos.js, também podemos usar a tag <script> no arquivo HTML.
+
+Nesse caso, não escrevemos no espaço entre as tags de abertura e de fechamento. 
+No entanto, adicionamos dois atributos à tag de abertura: src para definir a rota até o arquivo.js e defer para indicar 
+ao navegador que deve executar nosso código JavaScript apenas depois que todos os elementos HTML foram renderizados. 
+Observe o exemplo:
+
+<script src ="./script.js" defer></script>
+
+DOM
+
+Aprendemos o que é o Document Object Model (DOM) e como podemos acessar nossos elementos HTML 
+usando-o em conjunto com a linguagem JavaScript.
+Vamos relembrar que o DOM é um modelo que representa todos os elementos exibidos em uma página web.
+
+Acessando o DOM por id e classe
+
+O DOM nos fornece o objeto “Document” para acessar os elementos HTML do nosso site, 
+usando diferentes métodos, que são as funções salvas como valores de um objeto e acessadas via dot notation.
+O método .getElementById() recebe uma string como parâmetro, 
+que deve ser igual ao valor do id do elemento que queremos acessar. O retorno dessa ação é, 
+geralmente, guardado em uma variável. 
+Veja o exemplo:
+
+let titulo = document.getElementById("titulo");
+
+O método .getElementsByClassName() recebe, como parâmetro, uma string que deve ser igual ao nome da classe dos elementos que queremos acessar.
+Assim, é retornado um HTMLCollection, que é que tem uma estrutura semelhante à de um array. 
+Geralmente, esse retorno é guardado em uma variável. 
+Veja o exemplo:
+
+let postagens = document.getElementClassName("postagens");
+
+
+Acessando o DOM com seletores CSS
+
+Podemos acessar elementos HTML usando os mesmos seletores que usamos quando trabalhamos com CSS.
+Para acessar um único elemento, o método recomendado é o .querySelector(). 
+Ele recebe uma string como parâmetro com o seletor, ou com uma mistura de seletores. 
+O código deve ser escrito da mesma forma que faríamos em um arquivo CSS, ou seja, 
+com os seletores de classe começando com ponto “.”, os seletores de id começando com símbolo de cerquilha “#”, 
+que é como “jogo da velha”, etc. 
+Veja o exemplo:
+
+let titulosPostagens = document.querySelector(".lista-postagens h2");
+
+Para acessar vários elementos de uma só vez com seletores CSS, o método recomendado é o .querySelectorAll(). 
+Ele recebe uma string como parâmetro com o seletor, ou uma mistura de seletores, 
+e é escrito da mesma forma que o escreveríamos em um arquivo CSS. 
+Veja o exemplo:
+
+let titulosPostagens = document.querySelectorAll("#postagens > .div");
+
+innerText e innerHTML
+
+Usamos as propriedades .innerText e .innerHTML para acessar os conteúdos de texto 
+e em HTML dos nossos elementos capturados via DOM.
+
+innerText
+
+A propriedade .innerText retorna todo o texto contido entre as tags de abertura 
+e de fechamento do elemento capturado via DOM. Assim:
+
+let titulo = document.getElementById("titulo-pagina");
+console.log(titulo.innerText);
+
+Caso o elemento acessado possua elementos filhos, a propriedade retornará o texto de ambos, 
+que estarão separados por uma quebra de linha.
+
+innerHTML
+
+Já a propriedade .innerHTML retorna todo o conteúdo HTML contido entre as tags de abertura 
+e de fechamento do elemento capturado via DOM, incluindo os elementos filhos, seus textos e seus atributos, 
+mas sem a quebra de linha. 
+Veja o exemplo:
+
+let linksDeNavegacao = document.querySelectorAll("nav ul");
+console.log(linksDeNavegacao.innerHTML);
+
+Manipulando o DOM
+
+Além de acessar os conteúdos textuais e os de HTML usando as propriedades .innerText e .innerHTML, 
+podemos atribuir novos valores a eles. Para isso, usamos o operador de atribuição “=” e uma string com o novo valor. 
+Veja o exemplo:
+
+titulo.innerText = "titulo inserido com JavaScript"
+
+Para organizar a escrita das strings atribuídas como valores à propriedade .innerHTML, 
+recomendamos usar os templates strings. Assim:
+
+linksDeNavegacao.innerHTML =`
+<li>Elemento inserido com JavaScript</li>
+`
+
+Templates strings
+
+Os templates strings possuem vantagens em relação à concatenação de strings.
+
+Na linguagem JavaScript, podemos concatenar, ou juntar, duas ou mais strings se usarmos o operador de concatenação “+”.
+
+As strings agrupadas podem ser escritas normalmente ou usando apenas o nome da variável que guarda a string. 
+Veja o exemplo:
+
+let nome = "Fulano";
+let sobreNome = "Perez";
+
+let boasVindas = "Olá" + nome "" + sobreNome;
+
+Porém, uma alternativa mais prática para as strings concatenadas, ou as mais complexas, é o template string. 
+Nele, escrevemos uma única string entre dois acentos graves (` `), usados na crase, 
+e inserimos qualquer código JavaScript usando a estrutura ${ }.
+ Observe o exemplo:
+
+
+let nome = "Fulano";
+let sobreNome = "Perez";
+
+let boasVindas = `Olá ${nome} ${sobreNome}`
+
+Além disso, os templates strings nos permitem escrever uma string com quebras de linha. 
+Observe o exemplo:
+
+let variasLinhas = `Primeira linha.
+Segunda linha.
+E todo isto é ainda uma string só`
+
+Elementos HTML com código JavaScript
+
+Por fim, aprendemos a criar elementos HTML com código JavaScript 
+e a adicioná-los de forma dinâmica ao nosso site usando o DOM.
+
+Para realizar essas ações, precisamos seguir três etapas:
+
+criar o elemento HTML;
+
+popular ou manipulá-lo;
+
+adicioná-lo a um elemento pai.
+
+Para criar um elemento, chamamos o objeto “Document” e usamos o método createElement(). 
+Depois, passamos como argumento uma string com o nome do elemento HTML desejado.
+
+Geralmente, o retorno desse método é guardado em uma variável. 
+Veja o exemplo:
+
+let novoSubtitulo = document.createElement("h3");
+
+Para popular o elemento criado, podemos usar as propriedades .innerText ou .innerHTML, 
+dependendo da complexidade do conteúdo. 
+Observe:
+
+novoSubtitulo.innerText = "Comentários dos clientes"
+
+Além disso, podemos adicionar atributos ao elemento seguindo o mesmo processo. Dessa forma:
+
+novoSubtitulo.id = "Comentários"
+
+Para adicionar o elemento criado à nossa página, devemos:
+
+capturar o elemento pai, que o contém via o DOM;
+
+guardar o elemento criado em uma variável;
+
+chamar o método appendChild() no elemento pai, passando como argumento a variável que guarda o elemento criado.
+
+Veja o exemplo:
+
+let secoes = querySelector(".secoes");
+
+secoes.appendChild(novoSubtitulo);
+
+Vale lembrar que a inserção de conteúdos textuais ou HTML que usam a linguagem JavaScript não altera nossos arquivos HTML.
+As mudanças implantadas são apenas refletidas no navegador que interpreta o código do nosso site.
+
+Depois dessa revisão, você está pronto para passar para a próxima etapa!
+
+Fim!
